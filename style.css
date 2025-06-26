@@ -1,0 +1,233 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #141414;
+    color: #fff;
+   font-family: "Poppins", sans-serif;
+}
+header{
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 4rem;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+.div1 img{
+    height: 50px;
+}
+.div2{
+    display: flex;
+    gap: 2.5rem;
+    background-color: black;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(131, 126, 126, 0.5);
+    & a{
+        color: aliceblue;
+        text-decoration: none;
+        opacity: 0.5;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+
+    }
+}
+.div2 a:nth-child(1){
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+.div2 a:hover{
+    opacity: 1;
+    transition: all ease-in;
+     background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+   
+}
+
+.div3{
+display: flex;
+    gap: 1.5rem;
+}
+#btn{
+    border: none;
+    background: none;
+    color: aliceblue;
+    font-size: 1.2rem;
+    cursor: pointer;
+border-radius: 50%;
+width: 40px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#btn:hover{
+background-color: rgba(255, 255, 255, 0.1);
+    
+}
+/*hero section start*/
+.hero{
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-image: url("images/hero.png");
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 3rem;
+    display: flex;
+    align-items: flex-end;
+}
+.hero::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.9) 100% );
+    z-index: 1;
+}
+.hero-content{
+    z-index: 2;
+    position: relative;
+  
+    margin: 0 auto;
+    text-align: center;
+}
+.hero-content h2{
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    word-spacing: 5px;
+    line-height: 1.2;
+
+}
+.hero-content p{
+    color: #999999;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto ;
+
+}
+.start-watching{
+    background-color: #E50000;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin:0 auto;
+    cursor: pointer;
+}
+.start-watching:hover{
+    background-color: #820909;
+    transition: .2s ;
+   
+}
+/*category section start*/
+.Category{
+    width: 90%;
+    padding: 4rem;
+    margin: 0 auto;
+}
+.category-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    & h2{
+        font-size: 2.5rem;
+    font-weight: 600;
+    color: #fff;
+    padding-bottom: 1rem;
+}
+    & p{
+        
+    padding-bottom: 1rem;
+    color: #999999;
+}
+    
+}
+.header2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+   
+}
+.nav-btn{
+ height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+}
+
+.header2 button:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.nav-indicator{
+    display: flex;
+    gap: .5rem;
+   
+}
+.indicator{
+    height: 4px;
+    width: 24px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.indicator:nth-child(1){
+    background-color: #E50000;
+}
+.image-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    
+}
+.movie-card{
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.movie-card:hover{
+    transform: translateY(-5px);
+}
+.movie-poster{
+    padding: 30px;
+}
+.movie-poster img{
+   width: 100%;
+   object-fit: cover;
+   border-radius: 8px;
+
+}
+.movie-tittle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+
+}
