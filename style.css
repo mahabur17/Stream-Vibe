@@ -271,6 +271,7 @@ background-color: rgba(255, 255, 255, 0.1);
    border: 1px solid #262626;
    padding: 1rem;
    border-radius: 5px;
+   transition: transform 0.3s ease-in-out;
     & p{
         font-size: 1rem;
         color: #999999;
@@ -278,7 +279,7 @@ background-color: rgba(255, 255, 255, 0.1);
     }
 }
 .device-card:hover{
-    transform: translateY(-7px);
+    transform: translateY(-8px);
   
 }
 .device-card i,h3{
@@ -415,12 +416,14 @@ background-color: rgba(255, 255, 255, 0.1);
     }
 }
 #month{
-    background-color: #a40808;
+    background-color: #E50000;
     border-radius: 8px;
     color: #fff;
+    opacity: .9;
 }
 #month:hover{
     background-color: #820909;
+    transition: all 0.2s ease-in;
 }
 .sub-grid{
     display: grid;
@@ -435,6 +438,7 @@ background-color: rgba(255, 255, 255, 0.1);
      background-color: rgba(255, 255, 255, .05);
      padding: 1rem;
      border-radius: 5px;
+     transition: transform .3s ease-in-out;
     & h3{
         font-size: 1.5rem;
         font-weight: 600;
@@ -445,6 +449,9 @@ background-color: rgba(255, 255, 255, 0.1);
         padding-bottom: 1.9rem;
         padding-left: 1rem;
     }
+}
+.grid-item:hover{
+    transform: translateY(-8px);
 }
 .sub-button{
     cursor: pointer;
@@ -479,4 +486,50 @@ background-color: rgba(255, 255, 255, 0.1);
 }
 #plan{
     background-color: #E50000;
+   
+}
+#plan:hover{
+ background-color: #820909;
+    transition: all 0.2s ease-in;
+}
+/*trial section start*/
+.trial{
+    width: 82%;
+    padding: 5rem;
+    margin: 4rem auto;
+    background-image: url("images/last.png");
+    background-size: cover;
+    background-position: center;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(131, 126, 126, 0.1);
+    & h2{
+        font-size: 2.5rem;
+        padding-bottom: .5rem;
+        font-weight: 500;
+    }
+    & p{
+        color: #999;
+    }
+  
+}
+.trial-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.last-btn{
+    padding: .8rem 1.2rem;
+    background-color: #E50000;
+    color: #fff;
+    font-weight: 600;
+    opacity: .9;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+.last-btn:hover{
+    background-color: #820909;
+    transition: all .2s ease-in;
 }
