@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/6be06afa3c.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <!--header section start-->
@@ -174,5 +175,89 @@
             
         </div>
     </section>
+
+    <!--FAQ section-->
+    <section class="faq">
+        <div class="faq-header">
+            <div class="faq-header-text">
+                <h2>Frequently Asked Questions</h2>
+                <p>Got questions? We've got answers! Check out our FAQ section to find answers to the most common questions about StreamVibe.</p>
+            </div>
+           <button class="faq-button">Ask a Question</button>
+        </div>
+
+        <div class="faq-grid">
+ <div class="faq-item">
+               
+                   <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span class="question-no">01</span>
+                    <h3>What is StreamVibe?</h3>
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="faq-ans">
+                    <p>StreamVibe is a streaming service that allows you to watch movies and shows on demand</p>
+                </div>
+                </div>
+
+<div class="faq-item">
+         <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span class="question-no">02</span>
+                    <h3>How much does StreamVibe cost?</h3>
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="faq-ans">
+                    <p>StreamVibe is a streaming service that allows you to watch movies and shows on demand</p>
+                </div>
+</div>
+
+<div class="faq-item">
+                 <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span class="question-no">03</span>
+                    <h3>What content is available on StreamVibe?</h3>
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="faq-ans">
+                    <p>StreamVibe is a streaming service that allows you to watch movies and shows on demand</p>
+                </div>
+</div>
+<div class="faq-item">
+                 <div class="faq-question"
+                 onclick="toggleAnswer(this)">
+                    <span class="question-no">04</span>
+                    <h3>How can I watch StreamVibe?</h3>
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="faq-ans">
+                    <p>StreamVibe is a streaming service that allows you to watch movies and shows on demand</p>
+                </div>
+</div>
+
+            
+        </div>
+    </section>
+    <!--js code-->
+      <script>
+            function toggleAnswer(element) {
+                const answer = element.nextElementSibling;
+                const icon = element.querySelector('i');
+                
+                // Toggle active class
+                element.classList.toggle('active');
+                
+                // Toggle icon
+                if (icon.classList.contains('fa-plus')) {
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                } else {
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                }
+                
+                // Toggle answer visibility
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            }
+        </script>
 </body>
 </html>
