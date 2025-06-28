@@ -1,12 +1,15 @@
+/* Universal Box Sizing */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Base Body Styles */
 body{
     background-color: #141414;
     color: #fff;
-   font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 html{
     scroll-behavior: smooth;
@@ -37,6 +40,7 @@ nav{
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 0 10px rgba(131, 126, 126, 0.5);
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & a{
         color: aliceblue;
         text-decoration: none;
@@ -55,13 +59,13 @@ nav{
 .div2 a:hover{
     opacity: 1;
     transition: all ease-in;
-     background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
-   
+
 }
 
 .div3{
-display: flex;
+    display: flex;
     gap: 1.5rem;
 }
 #btn{
@@ -70,16 +74,16 @@ display: flex;
     color: aliceblue;
     font-size: 1.2rem;
     cursor: pointer;
-border-radius: 50%;
-width: 40px;
-height: 40px;
-display: flex;
-justify-content: center;
-align-items: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #btn:hover{
-background-color: rgba(255, 255, 255, 0.1);
-    
+    background-color: rgba(255, 255, 255, 0.1);
+
 }
 /*hero section start*/
 .hero{
@@ -106,7 +110,7 @@ background-color: rgba(255, 255, 255, 0.1);
 .hero-content{
     z-index: 2;
     position: relative;
-  
+
     margin: 0 auto;
     text-align: center;
 }
@@ -142,7 +146,7 @@ background-color: rgba(255, 255, 255, 0.1);
 .start-watching:hover{
     background-color: #820909;
     transition: .2s ;
-   
+
 }
 /*category section start*/
 .Category{
@@ -155,6 +159,7 @@ background-color: rgba(255, 255, 255, 0.1);
     justify-content: space-between;
     align-items: center;
     position: relative;
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & h2{
         font-size: 2.5rem;
     font-weight: 600;
@@ -162,27 +167,27 @@ background-color: rgba(255, 255, 255, 0.1);
     padding-bottom: 1rem;
 }
     & p{
-        
+
     padding-bottom: 1rem;
     color: #999999;
 }
-    
+
 }
 .header2{
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-   
+
 }
 .nav-btn{
- height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.1);
-        color: #fff;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 .header2 button:hover{
@@ -191,7 +196,7 @@ background-color: rgba(255, 255, 255, 0.1);
 .nav-indicator{
     display: flex;
     gap: .5rem;
-   
+
 }
 .indicator{
     height: 4px;
@@ -206,7 +211,7 @@ background-color: rgba(255, 255, 255, 0.1);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    
+
 }
 .movie-card{
     background-color: rgba(255, 255, 255, 0.05);
@@ -221,9 +226,9 @@ background-color: rgba(255, 255, 255, 0.1);
     padding: 30px;
 }
 .movie-poster img{
-   width: 100%;
-   object-fit: cover;
-   border-radius: 8px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 
 }
 .movie-tittle{
@@ -241,7 +246,7 @@ background-color: rgba(255, 255, 255, 0.1);
     margin: 0 auto;
 }
 .support-header{
-    
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & h2{
         font-size: 2.2rem;
         font-weight: 600;
@@ -249,7 +254,7 @@ background-color: rgba(255, 255, 255, 0.1);
     }
     & p{
         color: #999999;
-        
+
     }
 }
 .device-grid{
@@ -260,21 +265,23 @@ background-color: rgba(255, 255, 255, 0.1);
 }
 #oi{
     display: flex;
-   
+
     align-items: center;
     gap: 1rem;
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & h3{
         font-size: 20px;
         font-weight: 500;
     }
-   
+
 }
 .device-card{
-   background:  linear-gradient(-135deg, rgba(204, 0, 0, 0.1) 0%, #000000 40%);
-   border: 1px solid #262626;
-   padding: 1rem;
-   border-radius: 5px;
-   transition: transform 0.3s ease-in-out;
+    background: linear-gradient(-135deg, rgba(204, 0, 0, 0.1) 0%, #000000 40%);
+    border: 1px solid #262626;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & p{
         font-size: 1rem;
         color: #999999;
@@ -283,14 +290,14 @@ background-color: rgba(255, 255, 255, 0.1);
 }
 .device-card:hover{
     transform: translateY(-8px);
-  
+
 }
 .device-card i,h3{
     padding: 1rem;
 }
 .device-card i{
     font-size: 1.5rem;
-  color: #E50000;
+    color: #E50000;
 }
 /*faq section start*/
 .faq{
@@ -304,14 +311,15 @@ background-color: rgba(255, 255, 255, 0.1);
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5rem;
-     & h2{
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
+    & h2{
         font-size: 2.2rem;
         font-weight: 600;
         padding-bottom: 20px;
     }
     & p{
         color: #999999;
-        
+
     }
     & button{
         padding: 1rem 1.5rem;
@@ -345,9 +353,9 @@ background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.05);
     transition: backgroud-color 0.3s;
-
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & span{
-         color: #999;
+        color: #999;
     font-size: 1rem;
     margin-right: 1rem;
     font-weight: 500;
@@ -370,7 +378,7 @@ background-color: rgba(255, 255, 255, 0.1);
     font-weight: 500;
 }
 .faq-question.active i{
- transform: rotate(180deg);
+    transform: rotate(180deg);
 
 }
 .faq-ans{
@@ -393,6 +401,7 @@ background-color: rgba(255, 255, 255, 0.1);
 .sub-header{
     margin: 0 auto;
     text-align: center;
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & h2{
         font-size: 2.2rem;
         font-weight: 600;
@@ -408,14 +417,15 @@ background-color: rgba(255, 255, 255, 0.1);
     border: none;
     outline: none;
     margin: 0 auto;
-   width: 170px;
-   height: 55px;
-   border-radius: 10px;
+    width: 170px;
+    height: 55px;
+    border-radius: 10px;
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & span{
-       font-size: 18px;
-       font-weight: 500;
-     padding: .5rem;
-     color: #999;
+        font-size: 18px;
+        font-weight: 500;
+        padding: .5rem;
+        color: #999;
     }
 }
 #month{
@@ -433,19 +443,19 @@ background-color: rgba(255, 255, 255, 0.1);
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin-top: 3rem;
-   
-    
-   
+
+
 }
 .grid-item{
-     background-color: rgba(255, 255, 255, .05);
-     padding: 1rem;
-     border-radius: 5px;
-     transition: transform .3s ease-in-out;
+    background-color: rgba(255, 255, 255, .05);
+    padding: 1rem;
+    border-radius: 5px;
+    transition: transform .3s ease-in-out;
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & h3{
         font-size: 1.5rem;
         font-weight: 600;
-     
+
     }
     & p{
         color: #999999;
@@ -471,9 +481,10 @@ background-color: rgba(255, 255, 255, 0.1);
 }
 .btn{
     padding: 1rem;
-    
+
     display: flex;
     gap: 1.5rem;
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & button{
         padding: 0.5rem 0.7rem;
         background-color: #000000;
@@ -489,10 +500,10 @@ background-color: rgba(255, 255, 255, 0.1);
 }
 #plan{
     background-color: #E50000;
-   
+
 }
 #plan:hover{
- background-color: #820909;
+    background-color: #820909;
     transition: all 0.2s ease-in;
 }
 /*trial section start*/
@@ -505,6 +516,7 @@ background-color: rgba(255, 255, 255, 0.1);
     background-position: center;
 border-radius: 8px;
 box-shadow: 0 0 10px rgba(131, 126, 126, 0.1);
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & h2{
         font-size: 2.5rem;
         padding-bottom: .5rem;
@@ -513,7 +525,7 @@ box-shadow: 0 0 10px rgba(131, 126, 126, 0.1);
     & p{
         color: #999;
     }
-  
+
 }
 .trial-content{
     display: flex;
@@ -536,22 +548,22 @@ box-shadow: 0 0 10px rgba(131, 126, 126, 0.1);
     background-color: #820909;
     transition: all .2s ease-in;
 }
-/*footer section start*/
+/*footer start*/
 footer{
     width: 100%;
     background-color: #000000;
-  margin-top: 100px;
+    margin-top: 100px;
 }
 .footer-content{
     width: 90%;
     padding: 4rem;
     margin: 0 auto;
     display: flex;
-    gap: rem;
+    gap: rem; /* NOTE: This is an invalid CSS value. It will be ignored by browsers. */
     margin-bottom: 4rem;
-  
-    justify-content: space-between;
 
+    justify-content: space-between;
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & h3{
         font-size: 1.1rem;
         font-weight: 500;
@@ -574,44 +586,46 @@ footer{
     gap: 1rem;
     justify-content: center;
     padding: 1rem;
-    
-}
-.logo a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 1.5rem;
-  color: #fff;
-  height: 30px;
-  width: 30px;
-  padding: 1.2rem;
-  border-radius: 5px;
-  transition: transform 0.2s ease-in-out;
-    background-color: rgba(131, 126, 126, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.1) ;
-  
+
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
+    & a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: #fff;
+        height: 30px;
+        width: 30px;
+        padding: 1.2rem;
+        border-radius: 5px;
+        transition: transform 0.2s ease-in-out;
+        background-color: rgba(131, 126, 126, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.1) ;
+
+    }
     & i{
         opacity: .9;
     }
 }
 .logo a:hover{
     transform: translateY(-4px);
+    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
     & i{
         opacity: 1;
-}
+    }
 }
 hr{
     width: 81%;
-  opacity: .5;
+    opacity: .5;
     margin: 0 auto;
 }
 .copywrite{
-   width: 81%;
+    width: 81%;
     margin: 0 auto;
     display: flex;
-  margin-top: 1rem;
-  padding-bottom: 3rem;
+    margin-top: 1rem;
+    padding-bottom: 3rem;
     align-items: center;
 }
 .text{
@@ -629,4 +643,910 @@ hr{
 }
 .links a:hover{
     color: #fff;
+}
+
+
+/* ------------------------------------- */
+/* RESPONSIVE ADDITIONS BELOW THIS LINE  */
+/* ------------------------------------- */
+
+/* Small devices (phones, max-width: 767px) */
+@media screen and (max-width: 767px) {
+    header {
+        padding: 1rem 1rem; /* Adjust header padding for small screens */
+    }
+
+    nav {
+        flex-wrap: wrap; /* Allow navigation items to wrap */
+        justify-content: space-between;
+    }
+
+    .div1 {
+        order: 1; /* Keep logo first */
+    }
+
+    .div1 img {
+        height: 35px; /* Smaller logo for mobile */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu on small screens */
+        order: 2; /* Position hamburger next to logo */
+        font-size: 1.4rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .div3 {
+        order: 4; /* Move icons to the right, possibly on a new line if space is tight */
+        gap: 0.8rem; /* Smaller gap for icons */
+    }
+
+    #btn { /* Applies to search and bell icons */
+        width: 35px; /* Smaller touch target for icons */
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .div2 { /* Navigation links */
+        display: none; /* Hide by default */
+        flex-direction: column; /* Stack vertically */
+        position: absolute;
+        top: 100%; /* Position below header */
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a; /* Background for dropdown */
+        padding: 1rem 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        z-index: 99;
+        border-radius: 0 0 10px 10px;
+        text-align: center; /* Center links in dropdown */
+    }
+
+    .div2.active { /* Class added by JavaScript */
+        display: flex; /* Show when active */
+    }
+
+    .div2 a {
+        padding: 0.8rem 1rem; /* Larger touch targets */
+        opacity: 1; /* Make links fully visible in dropdown */
+        border-radius: 0; /* Remove border-radius on individual links for full-width dropdown */
+    }
+
+    .div2 a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hero Section Adjustments */
+    .hero {
+        padding: 8rem 1rem 2rem; /* Adjust padding for mobile header */
+        min-height: 70vh; /* Adjust min height for mobile */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+    }
+
+    .hero-content {
+        max-width: 90%; /* Constrain width */
+        padding: 0 1rem; /* Add horizontal padding */
+    }
+
+    .hero-content h2 {
+        font-size: 2rem; /* Smaller font size for mobile */
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem; /* Smaller font for paragraphs */
+    }
+
+    .start-watching {
+        font-size: 0.9rem; /* Smaller button font */
+        padding: 0.7rem 1.2rem; /* Smaller button padding */
+    }
+
+    /* Category Section Adjustments */
+    .Category {
+        width: 100%; /* Full width */
+        padding: 2rem 1rem; /* Reduced padding */
+    }
+
+    .category-header {
+        flex-direction: column; /* Stack header elements */
+        text-align: center;
+        margin-bottom: 1.5rem;
+        gap: 1rem;
+    }
+
+    .category-header .header1 h2 {
+        font-size: 1.8rem; /* Smaller heading */
+    }
+
+    .category-header .header1 p {
+        font-size: 0.85rem; /* Smaller paragraph */
+    }
+
+    .header2 {
+        justify-content: center; /* Center navigation buttons */
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 2 columns or more on mobile */
+        gap: 0.8rem; /* Smaller gap */
+    }
+
+    .movie-poster {
+        padding: 15px; /* Smaller padding inside cards */
+    }
+
+    .movie-tittle h3 {
+        font-size: 0.95rem; /* Smaller movie title */
+    }
+
+    /* Support Section Adjustments */
+    .support {
+        width: 100%; /* Full width */
+        padding: 2rem 1rem; /* Reduced padding */
+        text-align: center; /* Center text */
+    }
+
+    .support-header h2 {
+        font-size: 1.8rem; /* Smaller heading */
+        padding-bottom: 0.8rem;
+    }
+
+    .support-header p {
+        font-size: 0.85rem; /* Smaller paragraph */
+    }
+
+    .device-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 2 columns or more on mobile */
+        gap: 0.8rem; /* Smaller gap */
+    }
+
+    .device-card {
+        padding: 0.8rem; /* Reduced card padding */
+        text-align: center; /* Center content within card */
+    }
+
+    /* Target #oi directly since it's in HTML */
+    #oi { /* Device icon container */
+        justify-content: center; /* Center icons */
+        gap: 0.5rem; /* Smaller gap */
+        padding: 0.5rem; /* Reduced padding */
+    }
+
+    #oi h3 {
+        font-size: 1.1rem; /* Smaller heading in device card */
+    }
+
+    /* Specific adjustment for device-card i within media query */
+    .device-card i {
+        font-size: 1.3rem; /* Smaller icon */
+        /* To override original 'padding: 1rem' but only for i in device-card */
+        padding: 0; /* Remove original padding */
+    }
+
+    .device-card p {
+        font-size: 0.8rem; /* Smaller paragraph in device card */
+        padding: 0.5rem 0.5rem 1rem; /* Adjusted padding */
+    }
+
+    /* FAQ Section Adjustments */
+    .faq {
+        width: 100%; /* Full width */
+        padding: 2rem 1rem; /* Reduced padding */
+    }
+
+    .faq-header {
+        flex-direction: column; /* Stack header elements */
+        margin-bottom: 2rem; /* Reduced margin */
+        gap: 1rem;
+    }
+
+    .faq-header h2 {
+        font-size: 1.8rem; /* Smaller heading */
+    }
+
+    .faq-header p {
+        font-size: 0.85rem; /* Smaller paragraph */
+    }
+
+    .faq-header button {
+        padding: 0.7rem 1.2rem; /* Smaller button */
+        font-size: 0.9rem;
+    }
+
+    .faq-question {
+        padding: 0.8rem 1rem; /* Reduced padding */
+        gap: 0.8rem; /* Reduced gap */
+    }
+
+    .faq-question span {
+        font-size: 0.9rem; /* Smaller number */
+        padding: 0.3rem 0.5rem;
+    }
+
+    .faq-question h3 {
+        font-size: 1rem; /* Smaller question text */
+    }
+
+    .faq-ans p {
+        font-size: 0.85rem; /* Smaller answer text */
+        padding: 1rem 1.2rem;
+    }
+
+    /* Subscription Section Adjustments */
+    .subscription {
+        width: 100%; /* Full width */
+        padding: 2rem 1rem; /* Reduced padding */
+    }
+
+    .sub-header h2 {
+        font-size: 1.8rem; /* Smaller heading */
+    }
+
+    .sub-header p {
+        font-size: 0.85rem; /* Smaller paragraph */
+        padding-bottom: 1.5rem;
+    }
+
+    .sub-button {
+        width: 150px; /* Smaller button */
+        height: 45px;
+        font-size: 0.9rem;
+        /* Re-apply flex properties for centering in responsive context */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.3rem; /* Small internal padding */
+    }
+
+    .sub-button span {
+        font-size: 0.9rem; /* Smaller span text */
+        padding: 0.4rem 0.8rem;
+    }
+
+    .sub-grid {
+        grid-template-columns: 1fr; /* Single column for plans on mobile */
+        gap: 1rem; /* Reduced gap */
+        margin-top: 1.5rem;
+    }
+
+    .grid-item {
+        padding: 1.2rem; /* Reduced padding for plan cards */
+        text-align: center; /* Center content in plan cards */
+    }
+
+    .grid-item h3 {
+        font-size: 1.3rem; /* Smaller plan title */
+    }
+
+    .grid-item p {
+        font-size: 0.85rem; /* Smaller plan description */
+        padding-bottom: 1rem; /* Reduced padding */
+        padding-left: 0; /* Remove left padding */
+    }
+
+    #taka {
+        font-size: 1.8rem; /* Smaller price */
+        padding-left: 0; /* Remove left padding */
+        margin-top: 0.5rem;
+    }
+
+    .btn { /* Button group inside plan cards */
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 0.8rem; /* Reduced gap */
+        padding: 0.5rem; /* Reduced padding */
+    }
+
+    .btn button {
+        width: 100%; /* Full width for buttons */
+        font-size: 0.9rem; /* Smaller button font */
+        padding: 0.6rem 0.8rem;
+    }
+
+    /* Trial Section Adjustments */
+    .trial {
+        width: 90%; /* Adjust width for mobile */
+        padding: 2rem 1rem; /* Reduced padding */
+        margin: 2rem auto; /* Reduced margin */
+        text-align: center;
+    }
+
+    .trial-content {
+        flex-direction: column; /* Stack content vertically */
+        gap: 1rem;
+    }
+
+    .trial-header h2 {
+        font-size: 1.8rem; /* Smaller heading */
+        padding-bottom: 0.5rem;
+    }
+
+    .trial-header p {
+        font-size: 0.85rem; /* Smaller paragraph */
+    }
+
+    .last-btn {
+        font-size: 0.9rem; /* Smaller button */
+        padding: 0.7rem 1.2rem;
+    }
+
+    /* Footer Section - Responsive Adjustments (Additive Only) */
+    footer {
+        margin-top: 50px; /* Adjust margin for smaller screens */
+        padding-top: 2rem; /* Adjusted padding */
+    }
+
+    .footer-content {
+        /* Override original flex properties to use grid for wrapping columns */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Side-by-side, wrapping */
+        gap: 1rem; /* Controlled gap for grid items */
+        padding: 1.5rem 1rem; /* Adjust padding for mobile */
+        margin-bottom: 1rem; /* Reduce bottom margin */
+        width: 100%; /* Full width for footer content */
+    }
+
+    /* Ensure text within each footer column is centered */
+    .footer-content > div {
+        text-align: center;
+    }
+
+    /* Make links within footer columns stack vertically */
+    .footer-content a {
+        display: block; /* Override original 'display: flex' for stacking links */
+        justify-content: center; /* Center links horizontally */
+        padding: 0.2rem 0; /* Adjust padding for stacked links */
+        font-size: 0.85rem; /* Smaller font for footer links */
+    }
+
+    .logo { /* Original social links container */
+        gap: 0.8rem; /* Reduce gap */
+        padding: 0.8rem; /* Adjust padding */
+        justify-content: center; /* Center social icons within their column */
+    }
+
+    .logo a {
+        font-size: 1rem; /* Smaller social icon size */
+        height: 30px; /* Adjust size */
+        width: 30px;
+        padding: 0.5rem; /* Adjust padding for touch target */
+    }
+
+    hr {
+        width: 90%; /* Adjust hr width for mobile */
+        margin-top: 1rem; /* Adjust margin */
+    }
+
+    .copywrite {
+        flex-direction: column; /* Stack copyright text and links */
+        gap: 0.5rem; /* Reduce gap */
+        padding-bottom: 1.5rem; /* Adjust padding */
+        width: 90%; /* Adjust width */
+    }
+
+    .copywrite .text {
+        font-size: 0.8rem; /* Smaller copyright text */
+        text-align: center;
+    }
+
+    .copywrite .links {
+        flex-direction: column; /* Stack links within copyright */
+        gap: 0.3rem; /* Reduce gap */
+    }
+
+    .copywrite .links a {
+        font-size: 0.8rem; /* Smaller link font */
+        padding: 0.1rem 0;
+    }
+}
+
+/* Medium devices (tablets, 768px and up, up to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    header {
+        padding: 1.2rem 2rem; /* Adjust header padding */
+    }
+
+    .div1 img {
+        height: 45px; /* Slightly larger logo for tablets */
+    }
+
+    .hamburger-menu {
+        display: none; /* Hide hamburger menu on tablets */
+    }
+
+    .div2 {
+        display: flex; /* Show navigation links */
+        flex-direction: row; /* Horizontal */
+        position: static; /* Remove absolute positioning */
+        width: auto;
+        background-color: black;
+        box-shadow: none;
+        padding: 10px; /* Adjust padding */
+        gap: 1.5rem; /* Adjust gap */
+    }
+
+    .div2 a {
+        font-size: 0.95rem; /* Slightly smaller font */
+        padding: 0.4rem 0.8rem;
+    }
+
+    .div3 {
+        gap: 1rem; /* Adjust icon gap */
+    }
+
+    #btn { /* Search and Bell icons */
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        padding: 0 2rem 3rem; /* Adjust padding for wider screens */
+        min-height: 90vh; /* Adjust min height */
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem; /* Adjust heading size */
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .Category, .support, .faq, .subscription, .trial {
+        width: 95%; /* Slightly wider for tablets */
+        padding: 3rem 2rem; /* Adjusted padding */
+    }
+
+    .category-header {
+        flex-direction: row; /* Back to row layout */
+        text-align: left;
+        margin-bottom: 1.8rem;
+    }
+
+    .category-header .header1 h2, .support-header h2, .faq-header h2, .sub-header h2, .trial-header h2 {
+        font-size: 2.2rem; /* Adjust heading size */
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* More flexible grid */
+        gap: 1.2rem;
+    }
+
+    .movie-poster {
+        padding: 20px;
+    }
+
+    .device-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* More flexible grid */
+        gap: 1.2rem;
+    }
+
+    .device-card {
+        padding: 1.2rem;
+        /* No change to original text-align or #oi justify-content here, as it's not overriding original */
+    }
+
+    .faq-header {
+        flex-direction: row; /* Back to row layout */
+        margin-bottom: 3rem;
+    }
+
+    .faq-question {
+        padding: 1.2rem 1.8rem;
+        gap: 1.5rem;
+    }
+
+    .faq-question h3 {
+        font-size: 1.1rem;
+    }
+
+    .sub-button {
+        width: 160px;
+        height: 50px;
+    }
+
+    .sub-button span {
+        font-size: 1rem;
+    }
+
+    .sub-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* More flexible grid */
+        gap: 1.2rem;
+    }
+
+    .grid-item {
+        padding: 1.2rem;
+    }
+
+    .grid-item h3 {
+        font-size: 1.4rem;
+    }
+
+    .grid-item p {
+        padding-bottom: 1.5rem;
+    }
+
+    #taka {
+        font-size: 2rem;
+    }
+
+    .btn button {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.9rem;
+    }
+
+    .trial {
+        width: 90%;
+        padding: 4rem;
+        margin: 3rem auto;
+    }
+
+    .trial-content {
+        flex-direction: row; /* Back to row layout */
+    }
+
+    .last-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    /* Footer Section - Responsive Adjustments (Additive Only) */
+    footer {
+        margin-top: 80px; /* Adjust margin for tablets */
+    }
+
+    .footer-content {
+        /* Override original flex properties to use grid for wrapping columns */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Side-by-side, wrapping */
+        gap: 1.5rem; /* Controlled gap for grid items */
+        padding: 2.5rem 1rem; /* Adjust padding for tablets */
+        margin-bottom: 2rem; /* Adjust margin */
+        width: 95%; /* Adjust width for tablets */
+    }
+
+    /* Ensure text within each footer column is left-aligned on tablets */
+    .footer-content > div {
+        text-align: left;
+    }
+
+    /* Make links within footer columns continue to display as they do originally,
+       but align to the start */
+    .footer-content a {
+        justify-content: flex-start; /* Align links to the start if they remain flex */
+        font-size: 0.95rem; /* Slightly smaller font for footer links */
+    }
+
+    .logo { /* Original social icons container */
+        gap: 0.8rem; /* Adjust gap */
+        padding: 0.8rem; /* Adjust padding */
+        justify-content: flex-start; /* Align social icons left within their column */
+    }
+
+    .logo a {
+        font-size: 1.3rem; /* Adjust icon size */
+        height: 35px;
+        width: 35px;
+        padding: 0.8rem;
+    }
+
+    hr {
+        width: 90%; /* Adjust hr width */
+    }
+
+    .copywrite {
+        flex-direction: row; /* Back to row layout */
+        justify-content: space-between;
+        gap: 1rem;
+        padding-bottom: 2.5rem;
+        width: 90%;
+    }
+
+    .copywrite .text {
+        font-size: 0.9rem;
+    }
+
+    .copywrite .links {
+        flex-direction: row; /* Back to row layout */
+        gap: 1rem;
+    }
+
+    .copywrite .links a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 1024px and up) */
+@media screen and (min-width: 1024px) {
+    header{
+        padding: 1.5rem 4rem; /* Original desktop padding */
+    }
+
+    nav{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .div1 img{
+        height: 50px; /* Original desktop logo size */
+    }
+
+    .hamburger-menu {
+        display: none; /* Ensure hamburger is hidden on large screens */
+    }
+
+    .div2{
+        display: flex; /* Ensure links are displayed horizontally */
+        flex-direction: row;
+        position: static; /* Remove absolute positioning */
+        width: auto;
+        background-color: black;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 0 10px rgba(131, 126, 126, 0.5);
+        gap: 2.5rem;
+    }
+
+    .div2 a{
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .div3{
+        gap: 1.5rem;
+    }
+
+    #btn{
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .hero{
+        min-height: 100vh;
+        padding-bottom: 3rem;
+        justify-content: center;
+    }
+
+    .hero-content h2{
+        font-size: 3rem;
+    }
+
+    .hero-content p{
+        font-size: 1rem;
+    }
+
+    .start-watching{
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        gap: 10px;
+    }
+
+    .Category, .support, .faq, .subscription, .trial {
+        width: 90%; /* Original desktop width */
+        padding: 4rem; /* Original desktop padding */
+    }
+
+    .category-header, .faq-header {
+        flex-direction: row; /* Ensure row layout for headers */
+        text-align: left;
+        justify-content: space-between;
+    }
+
+    .category-header .header1 h2, .support-header h2, .faq-header h2, .sub-header h2, .trial-header h2 {
+        font-size: 2.5rem; /* Original desktop heading sizes */
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(4, 1fr); /* Original 4 columns */
+        gap: 1.5rem;
+    }
+
+    .movie-poster {
+        padding: 30px;
+    }
+
+    .movie-tittle h3 {
+        font-size: 1.2rem;
+    }
+
+    .device-grid {
+        grid-template-columns: repeat(3, 1fr); /* Original 3 columns */
+        gap: 1.5rem;
+    }
+
+    .device-card {
+        padding: 1rem;
+        text-align: left;
+    }
+
+    #oi { /* Device icon container */
+        justify-content: flex-start; /* Align left */
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    #oi h3 {
+        font-size: 20px;
+    }
+
+    .device-card i {
+        font-size: 1.5rem;
+    }
+
+    .device-card p {
+        padding: 1rem;
+    }
+
+    .faq-question {
+        padding: 1rem 2rem;
+        gap: 2rem;
+    }
+
+    .faq-question span {
+        font-size: 1rem;
+        padding: .4rem;
+    }
+
+    .faq-question h3 {
+        font-size: 1.2rem;
+    }
+
+    .faq-ans p {
+        padding: 1.5rem;
+    }
+
+    .sub-button {
+        width: 170px;
+        height: 55px;
+    }
+
+    .sub-button span {
+        font-size: 18px;
+        padding: .5rem;
+    }
+
+    .sub-grid {
+        grid-template-columns: repeat(3, 1fr); /* Original 3 columns */
+        gap: 1rem;
+    }
+
+    .grid-item {
+        padding: 1rem;
+        text-align: left;
+    }
+
+    .grid-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .grid-item p {
+        padding-bottom: 1.9rem;
+        padding-left: 1rem;
+    }
+
+    #taka {
+        font-size: 1.3rem;
+        padding-left: 1rem;
+    }
+
+    .btn { /* Button group inside plan cards */
+        padding: 1rem;
+        flex-direction: row; /* Ensure buttons are side-by-side */
+        gap: 1.5rem;
+    }
+
+    .btn button {
+        width: auto; /* Auto width */
+        padding: 0.5rem 0.7rem;
+        font-size: 1rem;
+    }
+
+    .trial {
+        width: 82%;
+        padding: 5rem;
+        margin: 4rem auto;
+    }
+
+    .trial-content {
+        flex-direction: row; /* Ensure row layout */
+    }
+
+    .last-btn {
+        padding: .8rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    /* Footer Section (Original properties are maintained for desktop) */
+    footer{
+        margin-top: 100px;
+    }
+    .footer-content{
+        width: 90%;
+        padding: 4rem;
+        margin: 0 auto;
+        display: flex;
+        gap: rem; /* Original invalid value, preserved */
+        margin-bottom: 4rem;
+        justify-content: space-between;
+    }
+    .footer-content h3{
+        font-size: 1.1rem;
+        font-weight: 500;
+        opacity: .9;
+    }
+    .footer-content a{
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        font-size: 1rem;
+        color: #999;
+        padding: .3rem .9rem;
+    }
+    .footer-content a:hover{
+        color: #fff;
+    }
+    .logo{
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        padding: 1rem;
+    }
+    .logo a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: #fff;
+        height: 30px;
+        width: 30px;
+        padding: 1.2rem;
+        border-radius: 5px;
+        transition: transform 0.2s ease-in-out;
+        background-color: rgba(131, 126, 126, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.1) ;
+    }
+    .logo a i{
+        opacity: .9;
+    }
+    .logo a:hover{
+        transform: translateY(-4px);
+    }
+    .logo a:hover i{
+        opacity: 1;
+    }
+    hr{
+        width: 81%;
+        opacity: .5;
+        margin: 0 auto;
+    }
+    .copywrite{
+        width: 81%;
+        margin: 0 auto;
+        display: flex;
+        margin-top: 1rem;
+        padding-bottom: 3rem;
+        align-items: center;
+    }
+    .text{
+        flex: 1;
+        color: #999;
+        font-size: 1rem;
+    }
+    .links {
+        display: flex;
+        gap: 2rem;
+    }
+    .links a{
+        text-decoration: none;
+        color: #999;
+    }
+    .links a:hover{
+        color: #fff;
+    }
 }
