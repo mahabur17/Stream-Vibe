@@ -8,6 +8,9 @@ body{
     color: #fff;
    font-family: "Poppins", sans-serif;
 }
+html{
+    scroll-behavior: smooth;
+}
 header{
     background-color: transparent;
     position: fixed;
@@ -532,4 +535,98 @@ box-shadow: 0 0 10px rgba(131, 126, 126, 0.1);
 .last-btn:hover{
     background-color: #820909;
     transition: all .2s ease-in;
+}
+/*footer section start*/
+footer{
+    width: 100%;
+    background-color: #000000;
+  margin-top: 100px;
+}
+.footer-content{
+    width: 90%;
+    padding: 4rem;
+    margin: 0 auto;
+    display: flex;
+    gap: rem;
+    margin-bottom: 4rem;
+  
+    justify-content: space-between;
+
+    & h3{
+        font-size: 1.1rem;
+        font-weight: 500;
+        opacity: .9;
+    }
+    & a{
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        font-size: 1rem;
+        color: #999;
+        padding: .3rem .9rem;
+    }
+}
+.footer-content a:hover{
+    color: #fff;
+}
+.logo{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+    
+}
+.logo a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  padding: 1.2rem;
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out;
+    background-color: rgba(131, 126, 126, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1) ;
+  
+    & i{
+        opacity: .9;
+    }
+}
+.logo a:hover{
+    transform: translateY(-4px);
+    & i{
+        opacity: 1;
+}
+}
+hr{
+    width: 81%;
+  opacity: .5;
+    margin: 0 auto;
+}
+.copywrite{
+   width: 81%;
+    margin: 0 auto;
+    display: flex;
+  margin-top: 1rem;
+  padding-bottom: 3rem;
+    align-items: center;
+}
+.text{
+    flex: 1;
+    color: #999;
+    font-size: 1rem;
+}
+.links {
+    display: flex;
+    gap: 2rem;
+}
+.links a{
+    text-decoration: none;
+    color: #999;
+}
+.links a:hover{
+    color: #fff;
 }
