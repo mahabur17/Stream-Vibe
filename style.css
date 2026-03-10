@@ -1,1552 +1,1059 @@
-/* Universal Box Sizing */
-*{
+/* ===========================
+   RESET & BASE
+=========================== */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Base Body Styles */
-body{
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
     background-color: #141414;
     color: #fff;
     font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
 }
-html{
-    scroll-behavior: smooth;
+
+img {
+    max-width: 100%;
+    display: block;
 }
-header{
-    background-color: transparent;
+
+/* ===========================
+   HEADER & NAV
+=========================== */
+header {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    padding: 1.5rem 4rem;
-    z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    padding: 1rem 4rem;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(20, 20, 20, 0.6);
+    transition: background-color 0.3s ease;
 }
-nav{
+
+nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
     margin: 0 auto;
+    gap: 1rem;
 }
-.div1 img{
-    height: 50px;
-}
-.div2{
-    display: flex;
-    gap: 2.5rem;
-    background-color: black;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 0 10px rgba(131, 126, 126, 0.5);
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & a{
-        color: aliceblue;
-        text-decoration: none;
-        opacity: 0.5;
-        font-size: 1rem;
-        font-weight: 500;
-        padding: 0.5rem 1rem;
 
-    }
+/* Logo */
+.nav-logo img {
+    height: 44px;
+    width: auto;
 }
-.div2 a:nth-child(1){
+
+/* Desktop nav links */
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.06);
+}
+
+.nav-links a {
+    color: rgba(240, 248, 255, 0.55);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.45rem 1rem;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: #fff;
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-}
-.div2 a:hover{
-    opacity: 1;
-    transition: all ease-in;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-
 }
 
-.div3{
+/* Right side: icons + hamburger */
+.nav-right {
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 0.5rem;
 }
-#btn{
-    border: none;
+
+.nav-icons {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.icon-btn {
     background: none;
-    color: aliceblue;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 50%;
+    border: none;
+    color: #f0f8ff;
+    font-size: 1.1rem;
     width: 40px;
     height: 40px;
+    border-radius: 50%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ===========================
+   HAMBURGER BUTTON
+=========================== */
+.hamburger {
+    display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 8px 9px;
+    transition: background 0.2s ease;
 }
-#btn:hover{
-    background-color: rgba(255, 255, 255, 0.1);
 
+.hamburger:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
-/*hero section start*/
-.hero{
+
+.hamburger .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                opacity 0.3s ease,
+                width 0.3s ease;
+    transform-origin: center;
+}
+
+/* Animated X state */
+.hamburger.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===========================
+   MOBILE MENU — full-width dropdown
+=========================== */
+@media (max-width: 768px) {
+    header {
+        padding: 0.85rem 1.2rem;
+        /* allow the dropdown to overflow below */
+        overflow: visible;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Dropdown: sits right below the header, full width, slides top→bottom */
+    .nav-links {
+        position: absolute;
+        top: 100%;           /* flush under the header bar */
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        background-color: rgba(15, 15, 15, 0.97);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        border-radius: 0;
+        padding: 0.5rem 0;
+
+        /* slide-down animation via clip-path + opacity */
+        clip-path: inset(0 0 100% 0);
+        opacity: 0;
+        pointer-events: none;
+        transition: clip-path 0.42s cubic-bezier(0.23, 1, 0.32, 1),
+                    opacity   0.35s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 999;
+    }
+
+    .nav-links.open {
+        clip-path: inset(0 0 0% 0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-links a {
+        display: block;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.9rem 1.5rem;
+        border-radius: 0;
+        color: rgba(255, 255, 255, 0.72);
+        opacity: 1;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+        background-color: rgba(229, 0, 0, 0.12);
+        color: #fff;
+    }
+
+    /* No full-screen backdrop needed — just a subtle underlay */
+    .menu-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: transparent;
+        z-index: 998;
+    }
+
+    .menu-backdrop.open {
+        display: block;
+    }
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
     min-height: 100vh;
     position: relative;
-    overflow: hidden;
     background-image: url("images/hero.png");
     background-size: cover;
     background-position: center;
-    padding-bottom: 3rem;
     display: flex;
     align-items: flex-end;
+    justify-content: center;
+    padding: 2rem 2rem 4rem;
+    overflow: hidden;
 }
-.hero::before{
+
+.hero::before {
     content: "";
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.9) 100% );
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.92) 100%);
     z-index: 1;
 }
-.hero-content{
-    z-index: 2;
+
+.hero-content {
     position: relative;
-
-    margin: 0 auto;
+    z-index: 2;
     text-align: center;
+    max-width: 700px;
+    width: 100%;
 }
-.hero-content h2{
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-    word-spacing: 5px;
+
+.hero-content h2 {
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    font-weight: 600;
     line-height: 1.2;
-
+    margin-bottom: 1.2rem;
 }
-.hero-content p{
-    color: #999999;
-    font-size: 1rem;
-    max-width: 600px;
-    margin: 0 auto ;
 
+.hero-content p {
+    color: #999;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    line-height: 1.7;
+    margin-bottom: 2rem;
 }
-.start-watching{
+
+.start-watching {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     background-color: #E50000;
     color: #fff;
     border: none;
-    padding: 1rem 2rem;
+    padding: 0.85rem 1.8rem;
     font-size: 1rem;
     font-weight: 500;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin:0 auto;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
-.start-watching:hover{
-    background-color: #820909;
-    transition: .2s ;
 
+.start-watching:hover {
+    background-color: #b30000;
+    transform: translateY(-2px);
 }
-/*category section start*/
-.Category{
-    width: 90%;
-    padding: 4rem;
+
+/* ===========================
+   SECTION COMMON
+=========================== */
+.category,
+.support,
+.faq,
+.subscription {
+    width: min(90%, 1300px);
     margin: 0 auto;
+    padding: 5rem 1rem;
 }
-.category-header{
+
+/* ===========================
+   CATEGORY SECTION
+=========================== */
+.category-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    position: relative;
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & h2{
-        font-size: 2.5rem;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.header-text h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
     font-weight: 600;
-    color: #fff;
-    padding-bottom: 1rem;
-}
-    & p{
-
-    padding-bottom: 1rem;
-    color: #999999;
+    margin-bottom: 0.75rem;
 }
 
+.header-text p {
+    color: #999;
+    font-size: 0.95rem;
+    max-width: 520px;
+    line-height: 1.6;
 }
-.header2{
+
+.header-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 10px;
-
+    flex-shrink: 0;
 }
-.nav-btn{
-    height: 40px;
+
+.nav-btn {
     width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: none;
-    cursor: pointer;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.85rem;
 }
 
-.header2 button:hover{
-    background-color: rgba(255, 255, 255, 0.3);
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
 }
-.nav-indicator{
+
+.nav-indicator {
     display: flex;
-    gap: .5rem;
-
+    gap: 6px;
+    align-items: center;
 }
-.indicator{
+
+.indicator {
     height: 4px;
     width: 24px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s ease;
 }
-.indicator:nth-child(1){
+
+.indicator.active {
     background-color: #E50000;
 }
-.image-grid{
+
+.image-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-
+    gap: 1.2rem;
 }
-.movie-card{
+
+.movie-card {
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.05);
 }
-.movie-card:hover{
-    transform: translateY(-5px);
-}
-.movie-poster{
-    padding: 30px;
-}
-.movie-poster img{
-    width: 100%;
-    object-fit: cover;
-    border-radius: 8px;
 
+.movie-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
-.movie-tittle{
+
+.movie-poster {
+    padding: 1.5rem;
+}
+
+.movie-poster img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.movie-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-
-
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
-/*support section start*/
-.support{
-    width: 90%;
-    padding: 4rem;
-    margin: 0 auto;
-}
-.support-header{
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & h2{
-        font-size: 2.2rem;
-        font-weight: 600;
-        padding-bottom: 20px;
-    }
-    & p{
-        color: #999999;
 
-    }
+/* ===========================
+   SUPPORT / DEVICES SECTION
+=========================== */
+.support-header {
+    margin-bottom: 2.5rem;
 }
-.device-grid{
+
+.support-header h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.support-header p {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 700px;
+}
+
+.device-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    padding-top: 2.5rem;
+    gap: 1.2rem;
 }
-#oi{
-    display: flex;
 
-    align-items: center;
-    gap: 1rem;
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & h3{
-        font-size: 20px;
-        font-weight: 500;
-    }
-
-}
-.device-card{
-    background: linear-gradient(-135deg, rgba(204, 0, 0, 0.1) 0%, #000000 40%);
+.device-card {
+    background: linear-gradient(-135deg, rgba(204, 0, 0, 0.12) 0%, #0a0a0a 50%);
     border: 1px solid #262626;
-    padding: 1rem;
-    border-radius: 5px;
-    transition: transform 0.3s ease-in-out;
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & p{
-        font-size: 1rem;
-        color: #999999;
-        padding: 1rem;
-    }
+    padding: 1.2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.device-card:hover{
-    transform: translateY(-8px);
 
+.device-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
-.device-card i,h3{
-    padding: 1rem;
+
+.device-icon-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 0.8rem 0.5rem;
 }
-.device-card i{
+
+.device-icon-row i {
     font-size: 1.5rem;
     color: #E50000;
+    min-width: 28px;
 }
-/*faq section start*/
-.faq{
-    width: 90%;
-    padding: 4rem;
-    margin: 0 auto;
 
+.device-icon-row h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
 }
-.faq-header{
+
+.device-card p {
+    color: #999;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    padding: 0.5rem 0.8rem 0.8rem;
+}
+
+/* ===========================
+   FAQ SECTION
+=========================== */
+.faq-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5rem;
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & h2{
-        font-size: 2.2rem;
-        font-weight: 600;
-        padding-bottom: 20px;
-    }
-    & p{
-        color: #999999;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
 
-    }
-    & button{
-        padding: 1rem 1.5rem;
-        background-color: #E50000;
-        border-radius: 8px;
-        color: #fff;
-        font-weight: 600;
-        border: none;
-        cursor: pointer;
-    }
+.faq-header-text h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
 }
-.faq-button:hover{
-    background-color: #820909;
-    transition: all 0.2s ease-in;
+
+.faq-header-text p {
+    color: #999;
+    font-size: 0.95rem;
+    max-width: 520px;
+    line-height: 1.6;
 }
-.faq-grid{
+
+.faq-button {
+    padding: 0.8rem 1.5rem;
+    background-color: #E50000;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.faq-button:hover {
+    background-color: #b30000;
+    transform: translateY(-2px);
+}
+
+.faq-grid {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.9rem;
 }
-.faq-item{
+
+.faq-item {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     overflow: hidden;
 }
-.faq-question{
+
+.faq-question {
     display: flex;
-    gap: 2rem;
     align-items: center;
-    padding: 1rem 2rem;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.05);
-    transition: backgroud-color 0.3s;
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & span{
-        color: #999;
-    font-size: 1rem;
-    margin-right: 1rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    transition: background-color 0.2s ease;
+    user-select: none;
+}
+
+.faq-question:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.question-no {
+    color: #777;
+    font-size: 0.95rem;
     font-weight: 500;
-    background-color:rgba(255, 255, 255, 0.1) ;
-    padding: .4rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 0.3rem 0.55rem;
     border-radius: 5px;
-    }
-
-    & i{
-        color: #999;
-    }
-}
-.faq-question:hover{
-    background-color: rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
 }
 
-.faq-question h3{
+.faq-question h3 {
     flex: 1;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 500;
 }
-.faq-question.active i{
-    transform: rotate(180deg);
 
+.faq-question i {
+    color: #999;
+    font-size: 0.9rem;
+    transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    flex-shrink: 0;
 }
-.faq-ans{
+
+.faq-question.active i {
+    transform: rotate(135deg);
+    color: #E50000;
+}
+
+.faq-ans {
     max-height: 0;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.02);
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.faq-ans p{
+
+.faq-ans p {
     color: #999;
-    line-height: 1.6;
-    padding: 1.5rem;
+    line-height: 1.7;
+    padding: 1rem 1.5rem 1.2rem;
+    font-size: 0.95rem;
 }
-/*subscription section start*/
-.subscription{
-    width: 90%;
-    padding: 4rem;
-    margin: 0 auto;
-}
-.sub-header{
-    margin: 0 auto;
+
+/* ===========================
+   SUBSCRIPTION SECTION
+=========================== */
+.sub-header {
     text-align: center;
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & h2{
-        font-size: 2.2rem;
-        font-weight: 600;
-        padding-bottom: 20px;
-    }
-    & p{
-        color: #999999;
-        padding-bottom: 40px;
-    }
+    margin-bottom: 3rem;
 }
-.sub-button{
-    background-color: rgba(255, 255, 255, .1);
+
+.sub-header h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.sub-header p {
+    color: #999;
+    font-size: 0.95rem;
+    max-width: 580px;
+    margin: 0 auto 1.8rem;
+    line-height: 1.7;
+}
+
+.sub-toggle {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.08);
     border: none;
-    outline: none;
-    margin: 0 auto;
-    width: 170px;
-    height: 55px;
     border-radius: 10px;
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & span{
-        font-size: 18px;
-        font-weight: 500;
-        padding: .5rem;
-        color: #999;
-    }
+    padding: 6px;
+    cursor: pointer;
+    gap: 2px;
 }
-#month{
+
+.toggle-opt {
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 1.1rem;
+    border-radius: 7px;
+    color: #999;
+    transition: all 0.25s ease;
+}
+
+.toggle-opt.active {
     background-color: #E50000;
-    border-radius: 8px;
     color: #fff;
-    opacity: .9;
 }
-#month:hover{
-    background-color: #820909;
-    transition: all 0.2s ease-in;
-}
-.sub-grid{
+
+.sub-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 3rem;
+    gap: 1.2rem;
+}
 
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
 
+.grid-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
-.grid-item{
-    background-color: rgba(255, 255, 255, .05);
-    padding: 1rem;
-    border-radius: 5px;
-    transition: transform .3s ease-in-out;
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & h3{
-        font-size: 1.5rem;
-        font-weight: 600;
 
-    }
-    & p{
-        color: #999999;
-        padding-bottom: 1.9rem;
-        padding-left: 1rem;
-    }
-}
-.grid-item:hover{
-    transform: translateY(-8px);
-}
-.sub-button{
-    cursor: pointer;
-}
-.grid-item span{
-    font-size: .8rem;
-    color: #999;
-}
-#taka{
+.grid-item h3 {
     font-size: 1.3rem;
-    font-weight: 400;
-    padding-left: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.grid-item > p {
+    color: #999;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1.2rem;
+}
+
+.price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: 600;
     color: #fff;
 }
-.btn{
-    padding: 1rem;
 
+.per-period {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.plan-btns {
     display: flex;
-    gap: 1.5rem;
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & button{
-        padding: 0.5rem 0.7rem;
-        background-color: #000000;
-        color: #fff;
-        font-size: 1rem;
-        font-weight: 400;
-        border: none;
-        outline: none;
-        border-radius: 5px;
-        cursor: pointer;
-        opacity: .9;
-    }
+    gap: 0.8rem;
+    flex-wrap: wrap;
 }
-#plan{
-    background-color: #E50000;
 
+.btn-trial,
+.btn-plan {
+    flex: 1;
+    padding: 0.6rem 0.5rem;
+    border: none;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    min-width: 100px;
 }
-#plan:hover{
-    background-color: #820909;
-    transition: all 0.2s ease-in;
+
+.btn-trial {
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.12);
 }
-/*trial section start*/
-.trial{
-    width: 82%;
-    padding: 5rem;
-    margin: 4rem auto;
+
+.btn-trial:hover {
+    background-color: #2a2a2a;
+}
+
+.btn-plan {
+    background-color: #E50000;
+    color: #fff;
+}
+
+.btn-plan:hover {
+    background-color: #b30000;
+}
+
+/* ===========================
+   TRIAL SECTION
+=========================== */
+.trial {
+    width: min(85%, 1200px);
+    margin: 1rem auto 3rem;
     background-image: url("images/last.png");
     background-size: cover;
     background-position: center;
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(131, 126, 126, 0.1);
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & h2{
-        font-size: 2.5rem;
-        padding-bottom: .5rem;
-        font-weight: 500;
-    }
-    & p{
-        color: #999;
-    }
-
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    padding: 3.5rem 3rem;
 }
-.trial-content{
+
+.trial-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
-.last-btn{
-    padding: .8rem 1.2rem;
+
+.trial-header h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.trial-header p {
+    color: #aaa;
+    font-size: 0.95rem;
+    max-width: 480px;
+    line-height: 1.6;
+}
+
+.last-btn {
+    padding: 0.85rem 1.6rem;
     background-color: #E50000;
     color: #fff;
-    font-weight: 600;
-    opacity: .9;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    cursor: pointer;
-
-}
-.last-btn:hover{
-    background-color: #820909;
-    transition: all .2s ease-in;
-}
-/*footer start*/
-footer{
-    width: 100%;
-    background-color: #000000;
-    margin-top: 100px;
-}
-.footer-content{
-    width: 90%;
-    padding: 4rem;
-    margin: 0 auto;
-    display: flex;
-    gap: rem; /* NOTE: This is an invalid CSS value. It will be ignored by browsers. */
-    margin-bottom: 4rem;
-
-    justify-content: space-between;
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & h3{
-        font-size: 1.1rem;
-        font-weight: 500;
-        opacity: .9;
-    }
-    & a{
-        display: flex;
-        flex-direction: row;
-        text-decoration: none;
-        font-size: 1rem;
-        color: #999;
-        padding: .3rem .9rem;
-    }
-}
-.footer-content a:hover{
-    color: #fff;
-}
-.logo{
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    padding: 1rem;
-
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & a{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: 1.5rem;
-        color: #fff;
-        height: 30px;
-        width: 30px;
-        padding: 1.2rem;
-        border-radius: 5px;
-        transition: transform 0.2s ease-in-out;
-        background-color: rgba(131, 126, 126, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.1) ;
-
-    }
-    & i{
-        opacity: .9;
-    }
-}
-.logo a:hover{
-    transform: translateY(-4px);
-    /* ORIGINAL SASS-LIKE SYNTAX - PRESERVED */
-    & i{
-        opacity: 1;
-    }
-}
-hr{
-    width: 81%;
-    opacity: .5;
-    margin: 0 auto;
-}
-.copywrite{
-    width: 81%;
-    margin: 0 auto;
-    display: flex;
-    margin-top: 1rem;
-    padding-bottom: 3rem;
-    align-items: center;
-}
-.text{
-    flex: 1;
-    color: #999;
     font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
-.links {
-    display: flex;
+
+.last-btn:hover {
+    background-color: #b30000;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+    background-color: #000;
+    margin-top: 3rem;
+    padding-top: 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 2rem;
+    max-width: 1300px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 3rem 0 2.5rem;
 }
-.links a{
-    text-decoration: none;
-    color: #999;
-}
-.links a:hover{
+
+.footer-col h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
     color: #fff;
 }
 
+.footer-col a {
+    display: block;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+    transition: color 0.2s ease;
+}
 
-/* ------------------------------------- */
-/* RESPONSIVE ADDITIONS BELOW THIS LINE  */
-/* ------------------------------------- */
+.footer-col a:hover {
+    color: #fff;
+}
 
-/* Small devices (phones, max-width: 767px) */
-@media screen and (max-width: 767px) {
-    header {
-        padding: 1rem 1rem; /* Adjust header padding for small screens */
-    }
+.social-icons {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
 
-    nav {
-        flex-wrap: wrap; /* Allow navigation items to wrap */
-        justify-content: space-between;
-    }
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 1rem;
+    padding: 0;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
 
-    .div1 {
-        order: 1; /* Keep logo first */
-    }
+.social-icons a:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255,255,255,0.15);
+}
 
-    .div1 img {
-        height: 35px; /* Smaller logo for mobile */
-    }
+hr {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
 
-    .hamburger-menu {
-        display: block; /* Show hamburger menu on small screens */
-        order: 2; /* Position hamburger next to logo */
-        font-size: 1.4rem;
-        width: 40px;
-        height: 40px;
-    }
+.copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1.2rem 0 2.5rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
 
-    .div3 {
-        order: 4; /* Move icons to the right, possibly on a new line if space is tight */
-        gap: 0.8rem; /* Smaller gap for icons */
-    }
+.copyright p {
+    color: #777;
+    font-size: 0.875rem;
+}
 
-    #btn { /* Applies to search and bell icons */
-        width: 35px; /* Smaller touch target for icons */
-        height: 35px;
-        font-size: 1rem;
-    }
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
 
-    .div2 { /* Navigation links */
-        display: none; /* Hide by default */
-        flex-direction: column; /* Stack vertically */
-        position: absolute;
-        top: 100%; /* Position below header */
-        left: 0;
-        width: 100%;
-        background-color: #1a1a1a; /* Background for dropdown */
-        padding: 1rem 0;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        z-index: 99;
-        border-radius: 0 0 10px 10px;
-        text-align: center; /* Center links in dropdown */
-    }
+.footer-links a {
+    color: #777;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+}
 
-    .div2.active { /* Class added by JavaScript */
-        display: flex; /* Show when active */
-    }
+.footer-links a:hover {
+    color: #fff;
+}
 
-    .div2 a {
-        padding: 0.8rem 1rem; /* Larger touch targets */
-        opacity: 1; /* Make links fully visible in dropdown */
-        border-radius: 0; /* Remove border-radius on individual links for full-width dropdown */
-    }
+/* ===========================
+   RESPONSIVE BREAKPOINTS
+=========================== */
 
-    .div2 a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    /* Hero Section Adjustments */
-    .hero {
-        padding: 8rem 1rem 2rem; /* Adjust padding for mobile header */
-        min-height: 70vh; /* Adjust min height for mobile */
-        justify-content: center; /* Center content horizontally */
-        align-items: center; /* Center content vertically */
-    }
-
-    .hero-content {
-        max-width: 90%; /* Constrain width */
-        padding: 0 1rem; /* Add horizontal padding */
-    }
-
-    .hero-content h2 {
-        font-size: 2rem; /* Smaller font size for mobile */
-        margin-bottom: 1rem;
-    }
-
-    .hero-content p {
-        font-size: 0.9rem; /* Smaller font for paragraphs */
-    }
-
-    .start-watching {
-        font-size: 0.9rem; /* Smaller button font */
-        padding: 0.7rem 1.2rem; /* Smaller button padding */
-    }
-
-    /* Category Section Adjustments */
-    .Category {
-        width: 100%; /* Full width */
-        padding: 2rem 1rem; /* Reduced padding */
-    }
-
-    .category-header {
-        flex-direction: column; /* Stack header elements */
-        text-align: center;
-        margin-bottom: 1.5rem;
-        gap: 1rem;
-    }
-
-    .category-header .header1 h2 {
-        font-size: 1.8rem; /* Smaller heading */
-    }
-
-    .category-header .header1 p {
-        font-size: 0.85rem; /* Smaller paragraph */
-    }
-
-    .header2 {
-        justify-content: center; /* Center navigation buttons */
-    }
+/* Large tablet / small desktop: ≤1024px */
+@media (max-width: 1024px) {
+    header { padding: 0.9rem 2rem; }
 
     .image-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 2 columns or more on mobile */
-        gap: 0.8rem; /* Smaller gap */
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .movie-poster {
-        padding: 15px; /* Smaller padding inside cards */
+    .sub-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .movie-tittle h3 {
-        font-size: 0.95rem; /* Smaller movie title */
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet: ≤768px */
+@media (max-width: 768px) {
+    header { padding: 0.85rem 1.2rem; }
+
+    /* Nav handled above */
+    .nav-links { display: flex; } /* ensure it stays flex (slide in/out) */
+
+    .hero {
+        padding: 6rem 1.2rem 3rem;
+        align-items: center;
     }
 
-    /* Support Section Adjustments */
-    .support {
-        width: 100%; /* Full width */
-        padding: 2rem 1rem; /* Reduced padding */
-        text-align: center; /* Center text */
-    }
+    .hero-content h2 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
 
-    .support-header h2 {
-        font-size: 1.8rem; /* Smaller heading */
-        padding-bottom: 0.8rem;
-    }
-
-    .support-header p {
-        font-size: 0.85rem; /* Smaller paragraph */
-    }
-
-    .device-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 2 columns or more on mobile */
-        gap: 0.8rem; /* Smaller gap */
-    }
-
-    .device-card {
-        padding: 0.8rem; /* Reduced card padding */
-        text-align: center; /* Center content within card */
-    }
-
-    /* Target #oi directly since it's in HTML */
-    #oi { /* Device icon container */
-        justify-content: center; /* Center icons */
-        gap: 0.5rem; /* Smaller gap */
-        padding: 0.5rem; /* Reduced padding */
-    }
-
-    #oi h3 {
-        font-size: 1.1rem; /* Smaller heading in device card */
-    }
-
-    /* Specific adjustment for device-card i within media query */
-    .device-card i {
-        font-size: 1.3rem; /* Smaller icon */
-        /* To override original 'padding: 1rem' but only for i in device-card */
-        padding: 0; /* Remove original padding */
-    }
-
-    .device-card p {
-        font-size: 0.8rem; /* Smaller paragraph in device card */
-        padding: 0.5rem 0.5rem 1rem; /* Adjusted padding */
-    }
-
-    /* FAQ Section Adjustments */
-    .faq {
-        width: 100%; /* Full width */
-        padding: 2rem 1rem; /* Reduced padding */
-    }
-
-    .faq-header {
-        flex-direction: column; /* Stack header elements */
-        margin-bottom: 2rem; /* Reduced margin */
-        gap: 1rem;
-    }
-
-    .faq-header h2 {
-        font-size: 1.8rem; /* Smaller heading */
-    }
-
-    .faq-header p {
-        font-size: 0.85rem; /* Smaller paragraph */
-    }
-
-    .faq-header button {
-        padding: 0.7rem 1.2rem; /* Smaller button */
-        font-size: 0.9rem;
-    }
-
-    .faq-question {
-        padding: 0.8rem 1rem; /* Reduced padding */
-        gap: 0.8rem; /* Reduced gap */
-    }
-
-    .faq-question span {
-        font-size: 0.9rem; /* Smaller number */
-        padding: 0.3rem 0.5rem;
-    }
-
-    .faq-question h3 {
-        font-size: 1rem; /* Smaller question text */
-    }
-
-    .faq-ans p {
-        font-size: 0.85rem; /* Smaller answer text */
-        padding: 1rem 1.2rem;
-    }
-
-    /* Subscription Section Adjustments */
+    .category,
+    .support,
+    .faq,
     .subscription {
-        width: 100%; /* Full width */
-        padding: 2rem 1rem; /* Reduced padding */
-    }
-
-    .sub-header h2 {
-        font-size: 1.8rem; /* Smaller heading */
-    }
-
-    .sub-header p {
-        font-size: 0.85rem; /* Smaller paragraph */
-        padding-bottom: 1.5rem;
-    }
-
-    .sub-button {
-        width: 150px; /* Smaller button */
-        height: 45px;
-        font-size: 0.9rem;
-        /* Re-apply flex properties for centering in responsive context */
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.3rem; /* Small internal padding */
-    }
-
-    .sub-button span {
-        font-size: 0.9rem; /* Smaller span text */
-        padding: 0.4rem 0.8rem;
-    }
-
-    .sub-grid {
-        grid-template-columns: 1fr; /* Single column for plans on mobile */
-        gap: 1rem; /* Reduced gap */
-        margin-top: 1.5rem;
-    }
-
-    .grid-item {
-        padding: 1.2rem; /* Reduced padding for plan cards */
-        text-align: center; /* Center content in plan cards */
-    }
-
-    .grid-item h3 {
-        font-size: 1.3rem; /* Smaller plan title */
-    }
-
-    .grid-item p {
-        font-size: 0.85rem; /* Smaller plan description */
-        padding-bottom: 1rem; /* Reduced padding */
-        padding-left: 0; /* Remove left padding */
-    }
-
-    #taka {
-        font-size: 1.8rem; /* Smaller price */
-        padding-left: 0; /* Remove left padding */
-        margin-top: 0.5rem;
-    }
-
-    .btn { /* Button group inside plan cards */
-        flex-direction: column; /* Stack buttons vertically */
-        gap: 0.8rem; /* Reduced gap */
-        padding: 0.5rem; /* Reduced padding */
-    }
-
-    .btn button {
-        width: 100%; /* Full width for buttons */
-        font-size: 0.9rem; /* Smaller button font */
-        padding: 0.6rem 0.8rem;
-    }
-
-    /* Trial Section Adjustments */
-    .trial {
-        width: 90%; /* Adjust width for mobile */
-        padding: 2rem 1rem; /* Reduced padding */
-        margin: 2rem auto; /* Reduced margin */
-        text-align: center;
-    }
-
-    .trial-content {
-        flex-direction: column; /* Stack content vertically */
-        gap: 1rem;
-    }
-
-    .trial-header h2 {
-        font-size: 1.8rem; /* Smaller heading */
-        padding-bottom: 0.5rem;
-    }
-
-    .trial-header p {
-        font-size: 0.85rem; /* Smaller paragraph */
-    }
-
-    .last-btn {
-        font-size: 0.9rem; /* Smaller button */
-        padding: 0.7rem 1.2rem;
-    }
-
-    /* Footer Section - Responsive Adjustments (Additive Only) */
-    footer {
-        margin-top: 50px; /* Adjust margin for smaller screens */
-        padding-top: 2rem; /* Adjusted padding */
-    }
-
-    .footer-content {
-        /* Override original flex properties to use grid for wrapping columns */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Side-by-side, wrapping */
-        gap: 1rem; /* Controlled gap for grid items */
-        padding: 1.5rem 1rem; /* Adjust padding for mobile */
-        margin-bottom: 1rem; /* Reduce bottom margin */
-        width: 100%; /* Full width for footer content */
-    }
-
-    /* Ensure text within each footer column is centered */
-    .footer-content > div {
-        text-align: center;
-    }
-
-    /* Make links within footer columns stack vertically */
-    .footer-content a {
-        display: block; /* Override original 'display: flex' for stacking links */
-        justify-content: center; /* Center links horizontally */
-        padding: 0.2rem 0; /* Adjust padding for stacked links */
-        font-size: 0.85rem; /* Smaller font for footer links */
-    }
-
-    .logo { /* Original social links container */
-        gap: 0.8rem; /* Reduce gap */
-        padding: 0.8rem; /* Adjust padding */
-        justify-content: center; /* Center social icons within their column */
-    }
-
-    .logo a {
-        font-size: 1rem; /* Smaller social icon size */
-        height: 30px; /* Adjust size */
-        width: 30px;
-        padding: 0.5rem; /* Adjust padding for touch target */
-    }
-
-    hr {
-        width: 90%; /* Adjust hr width for mobile */
-        margin-top: 1rem; /* Adjust margin */
-    }
-
-    .copywrite {
-        flex-direction: column; /* Stack copyright text and links */
-        gap: 0.5rem; /* Reduce gap */
-        padding-bottom: 1.5rem; /* Adjust padding */
-        width: 90%; /* Adjust width */
-    }
-
-    .copywrite .text {
-        font-size: 0.8rem; /* Smaller copyright text */
-        text-align: center;
-    }
-
-    .copywrite .links {
-        flex-direction: column; /* Stack links within copyright */
-        gap: 0.3rem; /* Reduce gap */
-    }
-
-    .copywrite .links a {
-        font-size: 0.8rem; /* Smaller link font */
-        padding: 0.1rem 0;
-    }
-}
-
-/* Medium devices (tablets, 768px and up, up to 1023px) */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    header {
-        padding: 1.2rem 2rem; /* Adjust header padding */
-    }
-
-    .div1 img {
-        height: 45px; /* Slightly larger logo for tablets */
-    }
-
-    .hamburger-menu {
-        display: none; /* Hide hamburger menu on tablets */
-    }
-
-    .div2 {
-        display: flex; /* Show navigation links */
-        flex-direction: row; /* Horizontal */
-        position: static; /* Remove absolute positioning */
-        width: auto;
-        background-color: black;
-        box-shadow: none;
-        padding: 10px; /* Adjust padding */
-        gap: 1.5rem; /* Adjust gap */
-    }
-
-    .div2 a {
-        font-size: 0.95rem; /* Slightly smaller font */
-        padding: 0.4rem 0.8rem;
-    }
-
-    .div3 {
-        gap: 1rem; /* Adjust icon gap */
-    }
-
-    #btn { /* Search and Bell icons */
-        width: 38px;
-        height: 38px;
-        font-size: 1.1rem;
-    }
-
-    .hero {
-        padding: 0 2rem 3rem; /* Adjust padding for wider screens */
-        min-height: 90vh; /* Adjust min height */
-    }
-
-    .hero-content h2 {
-        font-size: 2.5rem; /* Adjust heading size */
-    }
-
-    .hero-content p {
-        font-size: 0.95rem;
-    }
-
-    .Category, .support, .faq, .subscription, .trial {
-        width: 95%; /* Slightly wider for tablets */
-        padding: 3rem 2rem; /* Adjusted padding */
+        padding: 3rem 1.2rem;
     }
 
     .category-header {
-        flex-direction: row; /* Back to row layout */
-        text-align: left;
-        margin-bottom: 1.8rem;
-    }
-
-    .category-header .header1 h2, .support-header h2, .faq-header h2, .sub-header h2, .trial-header h2 {
-        font-size: 2.2rem; /* Adjust heading size */
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .image-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* More flexible grid */
-        gap: 1.2rem;
-    }
-
-    .movie-poster {
-        padding: 20px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .device-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* More flexible grid */
-        gap: 1.2rem;
-    }
-
-    .device-card {
-        padding: 1.2rem;
-        /* No change to original text-align or #oi justify-content here, as it's not overriding original */
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .faq-header {
-        flex-direction: row; /* Back to row layout */
-        margin-bottom: 3rem;
-    }
-
-    .faq-question {
-        padding: 1.2rem 1.8rem;
-        gap: 1.5rem;
-    }
-
-    .faq-question h3 {
-        font-size: 1.1rem;
-    }
-
-    .sub-button {
-        width: 160px;
-        height: 50px;
-    }
-
-    .sub-button span {
-        font-size: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .sub-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* More flexible grid */
-        gap: 1.2rem;
-    }
-
-    .grid-item {
-        padding: 1.2rem;
-    }
-
-    .grid-item h3 {
-        font-size: 1.4rem;
-    }
-
-    .grid-item p {
-        padding-bottom: 1.5rem;
-    }
-
-    #taka {
-        font-size: 2rem;
-    }
-
-    .btn button {
-        font-size: 0.95rem;
-        padding: 0.6rem 0.9rem;
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin: 0 auto;
     }
 
     .trial {
-        width: 90%;
-        padding: 4rem;
-        margin: 3rem auto;
+        padding: 2.5rem 1.8rem;
+        width: 92%;
     }
 
     .trial-content {
-        flex-direction: row; /* Back to row layout */
+        flex-direction: column;
+        text-align: center;
     }
 
-    .last-btn {
-        font-size: 1rem;
-        padding: 0.8rem 1.5rem;
-    }
-
-    /* Footer Section - Responsive Adjustments (Additive Only) */
-    footer {
-        margin-top: 80px; /* Adjust margin for tablets */
-    }
+    .trial-header p { max-width: 100%; }
 
     .footer-content {
-        /* Override original flex properties to use grid for wrapping columns */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Side-by-side, wrapping */
-        gap: 1.5rem; /* Controlled gap for grid items */
-        padding: 2.5rem 1rem; /* Adjust padding for tablets */
-        margin-bottom: 2rem; /* Adjust margin */
-        width: 95%; /* Adjust width for tablets */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 
-    /* Ensure text within each footer column is left-aligned on tablets */
-    .footer-content > div {
-        text-align: left;
-    }
-
-    /* Make links within footer columns continue to display as they do originally,
-       but align to the start */
-    .footer-content a {
-        justify-content: flex-start; /* Align links to the start if they remain flex */
-        font-size: 0.95rem; /* Slightly smaller font for footer links */
-    }
-
-    .logo { /* Original social icons container */
-        gap: 0.8rem; /* Adjust gap */
-        padding: 0.8rem; /* Adjust padding */
-        justify-content: flex-start; /* Align social icons left within their column */
-    }
-
-    .logo a {
-        font-size: 1.3rem; /* Adjust icon size */
-        height: 35px;
-        width: 35px;
-        padding: 0.8rem;
-    }
-
-    hr {
-        width: 90%; /* Adjust hr width */
-    }
-
-    .copywrite {
-        flex-direction: row; /* Back to row layout */
-        justify-content: space-between;
-        gap: 1rem;
-        padding-bottom: 2.5rem;
-        width: 90%;
-    }
-
-    .copywrite .text {
-        font-size: 0.9rem;
-    }
-
-    .copywrite .links {
-        flex-direction: row; /* Back to row layout */
-        gap: 1rem;
-    }
-
-    .copywrite .links a {
-        font-size: 0.9rem;
+    .copyright {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
     }
 }
 
-/* Large devices (laptops/desktops, 1024px and up) */
-@media screen and (min-width: 1024px) {
-    header{
-        padding: 1.5rem 4rem; /* Original desktop padding */
-    }
+/* Mobile: ≤480px */
+@media (max-width: 480px) {
+    .nav-logo img { height: 36px; }
 
-    nav{
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .div1 img{
-        height: 50px; /* Original desktop logo size */
-    }
-
-    .hamburger-menu {
-        display: none; /* Ensure hamburger is hidden on large screens */
-    }
-
-    .div2{
-        display: flex; /* Ensure links are displayed horizontally */
-        flex-direction: row;
-        position: static; /* Remove absolute positioning */
-        width: auto;
-        background-color: black;
-        border-radius: 10px;
-        padding: 15px;
-        box-shadow: 0 0 10px rgba(131, 126, 126, 0.5);
-        gap: 2.5rem;
-    }
-
-    .div2 a{
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-    }
-
-    .div3{
-        gap: 1.5rem;
-    }
-
-    #btn{
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-
-    .hero{
-        min-height: 100vh;
-        padding-bottom: 3rem;
-        justify-content: center;
-    }
-
-    .hero-content h2{
-        font-size: 3rem;
-    }
-
-    .hero-content p{
-        font-size: 1rem;
-    }
-
-    .start-watching{
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        gap: 10px;
-    }
-
-    .Category, .support, .faq, .subscription, .trial {
-        width: 90%; /* Original desktop width */
-        padding: 4rem; /* Original desktop padding */
-    }
-
-    .category-header, .faq-header {
-        flex-direction: row; /* Ensure row layout for headers */
-        text-align: left;
-        justify-content: space-between;
-    }
-
-    .category-header .header1 h2, .support-header h2, .faq-header h2, .sub-header h2, .trial-header h2 {
-        font-size: 2.5rem; /* Original desktop heading sizes */
-    }
+    .hero-content h2 { font-size: 1.6rem; }
+    .hero-content p  { font-size: 0.85rem; }
+    .start-watching  { font-size: 0.9rem; padding: 0.75rem 1.3rem; }
 
     .image-grid {
-        grid-template-columns: repeat(4, 1fr); /* Original 4 columns */
-        gap: 1.5rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
     }
 
-    .movie-poster {
-        padding: 30px;
-    }
-
-    .movie-tittle h3 {
-        font-size: 1.2rem;
-    }
+    .movie-poster { padding: 1rem; }
+    .movie-title { padding: 0.6rem 0.8rem; }
+    .movie-title h3 { font-size: 0.9rem; }
 
     .device-grid {
-        grid-template-columns: repeat(3, 1fr); /* Original 3 columns */
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
     }
 
-    .device-card {
-        padding: 1rem;
-        text-align: left;
-    }
-
-    #oi { /* Device icon container */
-        justify-content: flex-start; /* Align left */
-        gap: 1rem;
-        padding: 1rem;
-    }
-
-    #oi h3 {
-        font-size: 20px;
-    }
-
-    .device-card i {
-        font-size: 1.5rem;
-    }
-
-    .device-card p {
-        padding: 1rem;
-    }
-
-    .faq-question {
-        padding: 1rem 2rem;
-        gap: 2rem;
-    }
-
-    .faq-question span {
-        font-size: 1rem;
-        padding: .4rem;
-    }
-
-    .faq-question h3 {
-        font-size: 1.2rem;
-    }
-
-    .faq-ans p {
-        padding: 1.5rem;
-    }
-
-    .sub-button {
-        width: 170px;
-        height: 55px;
-    }
-
-    .sub-button span {
-        font-size: 18px;
-        padding: .5rem;
-    }
+    .faq-question { padding: 0.85rem 1rem; gap: 0.7rem; }
+    .faq-question h3 { font-size: 0.95rem; }
 
     .sub-grid {
-        grid-template-columns: repeat(3, 1fr); /* Original 3 columns */
-        gap: 1rem;
+        grid-template-columns: 1fr;
+        max-width: 100%;
     }
 
-    .grid-item {
-        padding: 1rem;
-        text-align: left;
+    .plan-btns {
+        flex-direction: column;
     }
 
-    .grid-item h3 {
-        font-size: 1.5rem;
-    }
-
-    .grid-item p {
-        padding-bottom: 1.9rem;
-        padding-left: 1rem;
-    }
-
-    #taka {
-        font-size: 1.3rem;
-        padding-left: 1rem;
-    }
-
-    .btn { /* Button group inside plan cards */
-        padding: 1rem;
-        flex-direction: row; /* Ensure buttons are side-by-side */
-        gap: 1.5rem;
-    }
-
-    .btn button {
-        width: auto; /* Auto width */
-        padding: 0.5rem 0.7rem;
-        font-size: 1rem;
+    .btn-trial, .btn-plan {
+        width: 100%;
     }
 
     .trial {
-        width: 82%;
-        padding: 5rem;
-        margin: 4rem auto;
+        padding: 2rem 1.2rem;
     }
 
-    .trial-content {
-        flex-direction: row; /* Ensure row layout */
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
     }
 
-    .last-btn {
-        padding: .8rem 1.2rem;
-        font-size: 1rem;
+    .footer-links {
+        gap: 0.8rem;
     }
 
-    /* Footer Section (Original properties are maintained for desktop) */
-    footer{
-        margin-top: 100px;
+    .copyright {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    .footer-content{
-        width: 90%;
-        padding: 4rem;
-        margin: 0 auto;
-        display: flex;
-        gap: rem; /* Original invalid value, preserved */
-        margin-bottom: 4rem;
-        justify-content: space-between;
-    }
-    .footer-content h3{
-        font-size: 1.1rem;
-        font-weight: 500;
-        opacity: .9;
-    }
-    .footer-content a{
-        display: flex;
-        flex-direction: row;
-        text-decoration: none;
-        font-size: 1rem;
-        color: #999;
-        padding: .3rem .9rem;
-    }
-    .footer-content a:hover{
-        color: #fff;
-    }
-    .logo{
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        padding: 1rem;
-    }
-    .logo a{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: 1.5rem;
-        color: #fff;
-        height: 30px;
-        width: 30px;
-        padding: 1.2rem;
-        border-radius: 5px;
-        transition: transform 0.2s ease-in-out;
-        background-color: rgba(131, 126, 126, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.1) ;
-    }
-    .logo a i{
-        opacity: .9;
-    }
-    .logo a:hover{
-        transform: translateY(-4px);
-    }
-    .logo a:hover i{
-        opacity: 1;
-    }
-    hr{
-        width: 81%;
-        opacity: .5;
-        margin: 0 auto;
-    }
-    .copywrite{
-        width: 81%;
-        margin: 0 auto;
-        display: flex;
-        margin-top: 1rem;
-        padding-bottom: 3rem;
-        align-items: center;
-    }
-    .text{
-        flex: 1;
-        color: #999;
-        font-size: 1rem;
-    }
-    .links {
-        display: flex;
-        gap: 2rem;
-    }
-    .links a{
-        text-decoration: none;
-        color: #999;
-    }
-    .links a:hover{
-        color: #fff;
-    }
+}
+
+/* Very small: ≤360px */
+@media (max-width: 360px) {
+    .image-grid { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: 1fr; }
+    .social-icons a { width: 34px; height: 34px; }
 }
